@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { JSX, useState } from 'react';
 import { Container, Typography, Box, Tabs, Tab, TextField } from '@mui/material';
+import Introduction from './utils/Introduction';
 import UseStateDemo from './demos/UseStateDemo';
 import styles from './styles/appStyles';
 
 const hookButtons = [
+  { label: 'Introduction', key: 'introduction' },
   { label: 'useState', key: 'useState' },
   { label: 'useEffect', key: 'useEffect' },
   { label: 'useMemo', key: 'useMemo' },
@@ -19,15 +21,12 @@ function App() {
     setSelectedContent(newValue);
   };
 
-  const renderDemo = () => {
-    switch (selectedContent) {
-      case 'useState':
-        return <UseStateDemo />;
-      // 今後追加
-      default:
-        return null;
-    }
+  const demoMap: Record<string, JSX.Element> = {
+    introduction: <Introduction />,
+    useState: <UseStateDemo />,
   };
+
+  const renderDemo = () => demoMap[selectedContent!] || null;
 
   // 検索に応じてフィルター
   const filteredHooks = hookButtons.filter(({ label }) =>
@@ -36,9 +35,13 @@ function App() {
 
   return (
     <Container maxWidth="md" sx={styles.container}>
-      <Typography variant="h5" align="center" gutterBottom>
-        React 学習アプリ
-      </Typography>
+      <Box display="flex" justifyContent="center" mb={2}>
+        <img
+          src="/ReactTitleIcon.png"
+          alt="React Title Icon"
+          style={{ height: 50 }} // 適宜サイズ調整
+        />
+      </Box>
 
       {/* 🔍 検索バー */}
       <Box sx={{ mb: 1 }}>
@@ -61,7 +64,7 @@ function App() {
           aria-label="hook tab list"
         >
           {filteredHooks.map(({ label, key }) => (
-            <Tab key={key} label={label} value={key} />
+            <Tab key={key} label={label} value={key} sx={{ textTransform: 'none' }}/>
           ))}
         </Tabs>
       </Box>
