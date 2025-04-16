@@ -5,10 +5,11 @@ import {
     Typography,
     Button,
     Box,
-    Paper,
 } from '@mui/material';
 import Banner from '../components/Banner';
 import styles from '../styles/demosStyles';
+
+const CONTENT_NAME = "useState"
 
 const UseStateDemo = () => {
     // バナー管理
@@ -27,18 +28,17 @@ const UseStateDemo = () => {
         <Box sx={styles.wrapper}>
             <Card sx={styles.card}>
                 <CardContent>
-                    <Typography sx={styles.title}>
-                        useStateとは？
+                    <Typography sx={styles.mainTitle}>
+                        {CONTENT_NAME}とは？
                     </Typography>
 
                     <Typography sx={styles.paragraph}>
                         useStateは、Reactで「今の状態」を管理するための仕組みです。
                         たとえば、「カウントが何回押されたか」や「ボタンが表示されているか」などを
-                        記憶しておくことができます。この機能を使うと、変化に応じて画面の表示を変えることが
-                        できるようになります。
+                        記憶しておくことができます。
                     </Typography>
 
-                    <Typography sx={styles.sectionTitle}>
+                    <Typography sx={styles.subTitle}>
                         基本的な使い方
                     </Typography>
                     <Typography sx={styles.codePre}>
@@ -48,34 +48,33 @@ const UseStateDemo = () => {
                         ].join('\n')}
                     </Typography>
 
-                    <Typography sx={styles.sectionTitle}>
+                    <Typography sx={styles.subTitle}>
                         デモ
                     </Typography>
 
-                    <Paper sx={styles.paper}>
+                    <Box sx={styles.paper}>
                         <Typography sx={styles.paragraph}>
                             現在のカウント: {count}
                         </Typography>
                         <Button variant="contained" sx={styles.button} onClick={handleClick}>
                             +1する
                         </Button>
-                    </Paper>
+                    </Box>
 
-                    <Typography sx={styles.sectionTitle}>
+                    <Typography sx={styles.subTitle}>
                         説明
                     </Typography>
                     <Typography sx={styles.paragraph}>
                         上のボタンをクリックすると、数字が1ずつ増えていきます。これはuseStateを使って、
                         「現在の数」を保存しているからです。ボタンを押すたびにその数が更新され、
                         Reactが自動的に新しい数を画面に表示してくれます。
-                        こうして画面と状態が連動して動くのが、Reactの大きな特徴です。
                     </Typography>
                 </CardContent>
             </Card>
 
             <Banner
                 open={showBanner}
-                message="useStateが動作しました。"
+                message={`${CONTENT_NAME}が動作しました。`}
                 onClose={handleCloseBanner}
             />
         </Box>

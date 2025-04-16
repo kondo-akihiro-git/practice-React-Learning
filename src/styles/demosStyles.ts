@@ -9,7 +9,7 @@ const styles = {
         width: '100%',
         p: 2,
     },
-    title: {
+    mainTitle: {
         fontSize: '1.5rem',
         mb: 2,
     },
@@ -25,15 +25,15 @@ const styles = {
         mb: 2,
         fontSize: '0.95rem',
     },
-    sectionTitle: {
+    subTitle: {
         mt: 4,
         fontSize: '1.25rem',
         mb: 1,
     },
     paper: {
         p: 3,
-        border: '1 solid #ccc',
-        borderRadius: '4px',
+        border: '1px solid #f4f4f4',
+        borderRadius: '8px',
         mb: 2,
     },
     button: {
