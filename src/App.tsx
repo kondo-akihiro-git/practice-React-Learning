@@ -1,7 +1,7 @@
 // App.tsx（共通部分）✅ 変更不要
 import { useState } from 'react';
 import { Button, Container, Typography, Box } from '@mui/material';
-import UseStateDemo from './components/UseStateDemo';
+import UseStateDemo from './demos/UseStateDemo';
 
 function App() {
   const [selectedContent, setSelectedContent] = useState<string | null>(null);
