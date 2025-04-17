@@ -6,23 +6,22 @@ import {
     Button,
     Box,
 } from '@mui/material';
-import Banner from '../components/Banner';
+import { useSnackBanner } from '../components/Banner';
 import styles from '../styles/demosStyles';
 
 const CONTENT_NAME = "useState"
 
 const UseStateDemo = () => {
-    // バナー管理
-    const [showBanner, setShowBanner] = useState(false);
-    const handleCloseBanner = () => setShowBanner(false);
+    const  enqueueSnackbar  = useSnackBanner();
 
-    // 実装
+    // 変更① ////////////////////////////////////////////////////////////////////////////////////////////////////
     const [count, setCount] = useState(0);
     const handleClick = () => {
         setCount(count + 1);
 
-        setShowBanner(true);
+        enqueueSnackbar(`${CONTENT_NAME}が動作しました。`);
     };
+    // 変更① ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return (
         <Box sx={styles.wrapper}>
@@ -53,12 +52,14 @@ const UseStateDemo = () => {
                     </Typography>
 
                     <Box sx={styles.paper}>
+                        {/* // 変更② //////////////////////////////////////////////////////////////////////////// */}
                         <Typography sx={styles.paragraph}>
                             現在のカウント: {count}
                         </Typography>
                         <Button variant="contained" sx={styles.button} onClick={handleClick}>
                             +1する
                         </Button>
+                        {/* // 変更② //////////////////////////////////////////////////////////////////////////// */}
                     </Box>
 
                     <Typography sx={styles.subTitle}>
@@ -72,11 +73,6 @@ const UseStateDemo = () => {
                 </CardContent>
             </Card>
 
-            <Banner
-                open={showBanner}
-                message={`${CONTENT_NAME}が動作しました。`}
-                onClose={handleCloseBanner}
-            />
         </Box>
     );
 };
