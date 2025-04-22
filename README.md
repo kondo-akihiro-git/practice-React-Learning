@@ -32,4 +32,3 @@ React（TypeScript）と MUI を使って、Reactの基本的なフックや機�
 
 - [ ] デプロイ環境整
 
-備
