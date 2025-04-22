@@ -1,22 +1,23 @@
 import React from 'react';
-import { Snackbar } from '@mui/material';
+import { SnackbarProvider, useSnackbar } from 'notistack';
 
-type BannerProps = {
-    open: boolean;
-    message: string;
-    onClose: () => void;
+/**
+ * カスタムバナー用フック
+ * @returns enqueueSnackBanner - バナー表示関数（variantは 'info' で固定）
+ */
+export const useSnackBanner = () => {
+    const { enqueueSnackbar } = useSnackbar();
+
+    const enqueueSnackBanner = (message: string) => {
+        enqueueSnackbar(message, {
+            variant: 'info', // ここで固定
+            anchorOrigin: { vertical: 'top', horizontal: 'left' },
+            autoHideDuration: 3000,
+        });
+    };
+
+    return enqueueSnackBanner;
 };
 
-const Banner: React.FC<BannerProps> = ({ open, message, onClose }) => {
-    return (
-        <Snackbar
-            open={open}
-            message={message}
-            anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-            onClose={onClose}
-            autoHideDuration={3000}
-        />
-    );
-};
-
-export default Banner;
+// Providerをラップして使えるようにする（App.tsxなどで使う）
+export const BannerProvider = SnackbarProvider;

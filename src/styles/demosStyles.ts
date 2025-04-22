@@ -8,6 +8,7 @@ const styles = {
     card: {
         width: '100%',
         p: 2,
+        mb: 8
     },
     mainTitle: {
         fontSize: '1.5rem',
@@ -21,7 +22,7 @@ const styles = {
         backgroundColor: '#f4f4f4',
         padding: 2,
         fontFamily: 'monospace',
-        whiteSpace: 'pre-line',
+        whiteSpace: 'pre-wrap',
         mb: 2,
         fontSize: '0.95rem',
     },

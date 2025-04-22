@@ -2,7 +2,11 @@ import React, { JSX, useState } from 'react';
 import { Container, Typography, Box, Tabs, Tab, TextField } from '@mui/material';
 import Introduction from './utils/Introduction';
 import UseStateDemo from './demos/UseStateDemo';
+import UseEffectDemo from './demos/UseEffectDemo';
+import UseMemoDemo from './demos/UseMemoDemo';
 import styles from './styles/appStyles';
+import { BannerProvider } from './components/Banner';
+
 
 const hookButtons = [
   { label: 'Introduction', key: 'introduction' },
@@ -14,7 +18,7 @@ const hookButtons = [
 ];
 
 function App() {
-  const [selectedContent, setSelectedContent] = useState<string | null>('useState');
+  const [selectedContent, setSelectedContent] = useState<string | null>('introduction');
   const [searchText, setSearchText] = useState('');
 
   const handleChange = (_: React.SyntheticEvent, newValue: string) => {
@@ -24,6 +28,8 @@ function App() {
   const demoMap: Record<string, JSX.Element> = {
     introduction: <Introduction />,
     useState: <UseStateDemo />,
+    useEffect: <UseEffectDemo />,
+    useMemo: <UseMemoDemo />
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;
@@ -34,16 +40,16 @@ function App() {
   );
 
   return (
+    <BannerProvider maxSnack={5} anchorOrigin={{ vertical: 'top', horizontal: 'left' }}>
     <Container maxWidth="md" sx={styles.container}>
       <Box display="flex" justifyContent="center" mb={2}>
         <img
           src="/ReactTitleIcon.png"
           alt="React Title Icon"
-          style={{ height: 50 }} // 適宜サイズ調整
+          style={{ height: 50 }} 
         />
       </Box>
 
-      {/* 🔍 検索バー */}
       <Box sx={{ mb: 1 }}>
         <TextField
           fullWidth
@@ -54,7 +60,6 @@ function App() {
         />
       </Box>
 
-      {/* 🧭 タブリスト */}
       <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
         <Tabs
           value={selectedContent}
@@ -71,6 +76,7 @@ function App() {
 
       {renderDemo()}
     </Container>
+    </BannerProvider>
   );
 }
 
