@@ -3,6 +3,7 @@ import { Container, Typography, Box, Tabs, Tab, TextField } from '@mui/material'
 import Introduction from './utils/Introduction';
 import UseStateDemo from './demos/UseStateDemo';
 import UseEffectDemo from './demos/UseEffectDemo';
+import UseMemoDemo from './demos/UseMemoDemo';
 import styles from './styles/appStyles';
 import { BannerProvider } from './components/Banner';
 
@@ -17,7 +18,7 @@ const hookButtons = [
 ];
 
 function App() {
-  const [selectedContent, setSelectedContent] = useState<string | null>('useState');
+  const [selectedContent, setSelectedContent] = useState<string | null>('introduction');
   const [searchText, setSearchText] = useState('');
 
   const handleChange = (_: React.SyntheticEvent, newValue: string) => {
@@ -28,6 +29,7 @@ function App() {
     introduction: <Introduction />,
     useState: <UseStateDemo />,
     useEffect: <UseEffectDemo />,
+    useMemo: <UseMemoDemo />
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;
