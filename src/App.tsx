@@ -1,9 +1,10 @@
-import React, { JSX, useState } from 'react';
+import React, { JSX, useCallback, useState } from 'react';
 import { Container, Typography, Box, Tabs, Tab, TextField } from '@mui/material';
 import Introduction from './utils/Introduction';
 import UseStateDemo from './demos/UseStateDemo';
 import UseEffectDemo from './demos/UseEffectDemo';
 import UseMemoDemo from './demos/UseMemoDemo';
+import UseCallbackDemo from './demos/UseCallbackDemo';
 import styles from './styles/appStyles';
 import { BannerProvider } from './components/Banner';
 
@@ -29,7 +30,8 @@ function App() {
     introduction: <Introduction />,
     useState: <UseStateDemo />,
     useEffect: <UseEffectDemo />,
-    useMemo: <UseMemoDemo />
+    useMemo: <UseMemoDemo />,
+    useCallback: <UseCallbackDemo />
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;
