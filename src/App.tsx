@@ -5,6 +5,7 @@ import UseStateDemo from './demos/UseStateDemo';
 import UseEffectDemo from './demos/UseEffectDemo';
 import UseMemoDemo from './demos/UseMemoDemo';
 import UseCallbackDemo from './demos/UseCallbackDemo';
+import AxiosFetchDemo from './demos/AxiosFetchDemo';
 import styles from './styles/appStyles';
 import { BannerProvider } from './components/Banner';
 
@@ -15,7 +16,7 @@ const hookButtons = [
   { label: 'useEffect', key: 'useEffect' },
   { label: 'useMemo', key: 'useMemo' },
   { label: 'useCallback', key: 'useCallback' },
-  // 必要に応じて追加
+  { label: 'Axios / Fetch', key: 'AxiosFetch' },
 ];
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
     useState: <UseStateDemo />,
     useEffect: <UseEffectDemo />,
     useMemo: <UseMemoDemo />,
-    useCallback: <UseCallbackDemo />
+    useCallback: <UseCallbackDemo />,
+    AxiosFetch: <AxiosFetchDemo />
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;
