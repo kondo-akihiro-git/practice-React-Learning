@@ -1,6 +1,7 @@
 import React, { JSX, useCallback, useState } from 'react';
 import { Container, Typography, Box, Tabs, Tab, TextField } from '@mui/material';
 import Introduction from './utils/Introduction';
+import SetupDemo from './demos/SetupDemo';
 import UseStateDemo from './demos/UseStateDemo';
 import UseEffectDemo from './demos/UseEffectDemo';
 import UseMemoDemo from './demos/UseMemoDemo';
@@ -12,6 +13,7 @@ import { BannerProvider } from './components/Banner';
 
 const hookButtons = [
   { label: 'Introduction', key: 'introduction' },
+  { label: '環境構築', key: 'setup' },
   { label: 'useState', key: 'useState' },
   { label: 'useEffect', key: 'useEffect' },
   { label: 'useMemo', key: 'useMemo' },
@@ -29,6 +31,7 @@ function App() {
 
   const demoMap: Record<string, JSX.Element> = {
     introduction: <Introduction />,
+    setup: <SetupDemo />,
     useState: <UseStateDemo />,
     useEffect: <UseEffectDemo />,
     useMemo: <UseMemoDemo />,

@@ -26,11 +26,12 @@ React（TypeScript）と MUI を使って、Reactの基本的なフックや機�
 - [x] タイトルデザインの追加
 - [x] useEffect学習ページの追加
 - [x] useMemo学習ページの追加
-- [ ] useCallBack学習ページの追加
+- [x] useCallBack学習ページの追加
+- [x] React環境構築の手順追加
+- [x] デプロイ環境整備
 
 ### 進行中・予定
 
-- [ ] デプロイ環境整備
-- [ ] React環境構築の手順追加
+
 - [ ] map/keyの扱い追加
 - [ ] ReactFormの扱い追加
