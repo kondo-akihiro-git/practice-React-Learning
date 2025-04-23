@@ -1,3 +1,5 @@
+import { transform } from "typescript";
+
 const styles = {
     wrapper: {
         display: 'flex',
@@ -39,6 +41,7 @@ const styles = {
     },
     button: {
         mt: 1,
+        textTransform: 'none'
     },
 };
 

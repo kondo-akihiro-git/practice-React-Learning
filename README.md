@@ -30,4 +30,7 @@ React（TypeScript）と MUI を使って、Reactの基本的なフックや機�
 
 ### 進行中・予定
 
-- [ ] デプロイ環境整
+- [ ] デプロイ環境整備
+- [ ] React環境構築の手順追加
+- [ ] map/keyの扱い追加
+- [ ] ReactFormの扱い追加
