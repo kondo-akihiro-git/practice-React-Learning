@@ -7,8 +7,10 @@ import UseEffectDemo from './demos/UseEffectDemo';
 import UseMemoDemo from './demos/UseMemoDemo';
 import UseCallbackDemo from './demos/UseCallbackDemo';
 import AxiosFetchDemo from './demos/AxiosFetchDemo';
+import ReactApexChartDemo from './demos/ReactApexChartDemo';
 import styles from './styles/appStyles';
 import { BannerProvider } from './components/Banner';
+import ReactApexChart from 'react-apexcharts';
 
 
 const hookButtons = [
@@ -19,6 +21,7 @@ const hookButtons = [
   { label: 'useMemo', key: 'useMemo' },
   { label: 'useCallback', key: 'useCallback' },
   { label: 'Axios / Fetch', key: 'AxiosFetch' },
+  { label: 'ApexChart', key: 'ApexChart' },
 ];
 
 function App() {
@@ -36,7 +39,8 @@ function App() {
     useEffect: <UseEffectDemo />,
     useMemo: <UseMemoDemo />,
     useCallback: <UseCallbackDemo />,
-    AxiosFetch: <AxiosFetchDemo />
+    AxiosFetch: <AxiosFetchDemo />,
+    ApexChart: <ReactApexChartDemo/>
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;
