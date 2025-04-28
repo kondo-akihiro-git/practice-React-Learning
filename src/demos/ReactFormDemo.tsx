@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import {
     Card,
     CardContent,
@@ -23,7 +23,7 @@ const ReactFormDemo = () => {
     const enqueueSnackbar = useSnackBanner();
     const [submittedData, setSubmittedData] = useState<FormData | null>(null);
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit: SubmitHandler<FormData> = (data) => {
         setSubmittedData(data);
         enqueueSnackbar("フォームが送信されました！");
     };
@@ -48,14 +48,47 @@ const ReactFormDemo = () => {
                         {[
                             'import { useForm } from "react-hook-form";',
                             '',
-                            'const { register, handleSubmit, formState: { errors } } = useForm();',
+                            'type FormData = {',
+                            '  name: string;',
+                            '  email: string;',
+                            '};',
                             '',
-                            'const onSubmit = (data) => { console.log(data); };',
+                            'const { register, handleSubmit, formState: { errors } } = useForm<FormData>();',
+                            'const enqueueSnackbar = useSnackBanner();',
+                            'const [submittedData, setSubmittedData] = useState<FormData | null>(null);',
                             '',
-                            '<form onSubmit={handleSubmit(onSubmit)}>',
-                            '  <input {...register("name", { required: true })} />',
-                            '  <input type="submit" />',
-                            '</form>',
+                            'const onSubmit: SubmitHandler<FormData> = (data) => {',
+                            '  setSubmittedData(data);',
+                            '  enqueueSnackbar("フォームが送信されました！");',
+                            '};',
+                            '',
+                            '<Box component="form" onSubmit={handleSubmit(onSubmit)}>',
+                            '  <TextField',
+                            '    label="名前"',
+                            '    variant="outlined"',
+                            '    fullWidth',
+                            '    margin="normal"',
+                            '    {...register("name", { required: "名前は必須です" })}',
+                            '    error={!!errors.name}',
+                            '    helperText={errors.name?.message}',
+                            '  />',
+                            '  <TextField',
+                            '    label="メールアドレス"',
+                            '    variant="outlined"',
+                            '    fullWidth',
+                            '    margin="normal"',
+                            '    {...register("email", {',
+                            '      required: "メールアドレスは必須です",',
+                            '      pattern: {',
+                            '        value: /^[^@]+@[^@]+\.[^@]+$/,',
+                            '        message: "正しいメールアドレスを入力してください"',
+                            '      }',
+                            '    })}',
+                            '    error={!!errors.email}',
+                            '    helperText={errors.email?.message}',
+                            '  />',
+                            '  <Button type="submit">送信</Button>',
+                            '</Box>'
                         ].join('\n')}
                     </Typography>
 
@@ -98,7 +131,7 @@ const ReactFormDemo = () => {
                     {submittedData && (
                         <Box sx={styles.paper}>
                             <Typography sx={styles.paragraph}>
-                                送信されたデータ:
+                                送信されたデータ
                             </Typography>
                             <Typography sx={styles.paragraph}>
                                 名前: {submittedData.name}
@@ -113,10 +146,16 @@ const ReactFormDemo = () => {
                         説明
                     </Typography>
                     <Typography sx={styles.paragraph}>
-                        フォームの各フィールドに対して `register` を使って登録し、<br />
-                        `handleSubmit`で送信処理を簡単に管理しています。<br />
-                        また、バリデーションエラーは `errors` オブジェクトから取得して表示できます。<br />
-                        react-hook-formを使うことで、バリデーション・データ取得・エラー表示をスッキリ書けるようになります！
+                        このデモでは、<strong>react-hook-form</strong>を使ってフォームを管理し、バリデーションを簡単に設定しています。<br />
+                        主に使われているのは以下の3つの関数です：<br />
+                        <br />
+                        - <strong>useForm()</strong>: フォーム管理のためのフックで、<strong>register</strong>、<strong>handleSubmit</strong>、<strong>errors</strong>を提供します。<br />
+                        - <strong>register()</strong>: フォームの各入力フィールドをReact Hook Formに登録し、バリデーションルールを指定できます。<br />
+                        - <strong>handleSubmit()</strong>: フォーム送信時の処理を簡単に管理します。<br />
+                        - <strong>errors</strong>: バリデーションエラーがあれば、その情報を提供します。<br />
+                        <br />
+                        フォームの送信データを受け取る処理はonSubmitで行い、送信されたデータをコンポーネント内で表示しています。<br />
+                        これにより、簡潔にフォームのデータ管理やバリデーションができ、Reactのフォームを扱う際に非常に便利です！
                     </Typography>
                 </CardContent>
             </Card>
