@@ -1,22 +1,31 @@
 import React, { JSX, useCallback, useState } from 'react';
 import { Container, Typography, Box, Tabs, Tab, TextField } from '@mui/material';
 import Introduction from './utils/Introduction';
+import SetupDemo from './demos/SetupDemo';
 import UseStateDemo from './demos/UseStateDemo';
 import UseEffectDemo from './demos/UseEffectDemo';
 import UseMemoDemo from './demos/UseMemoDemo';
 import UseCallbackDemo from './demos/UseCallbackDemo';
 import AxiosFetchDemo from './demos/AxiosFetchDemo';
+import ReactApexChartDemo from './demos/ReactApexChartDemo';
+import ComponentDemo from './demos/ComponentDemo';
+import ReactFormDemo from './demos/ReactFormDemo'
 import styles from './styles/appStyles';
 import { BannerProvider } from './components/Banner';
+import ReactApexChart from 'react-apexcharts';
 
 
 const hookButtons = [
   { label: 'Introduction', key: 'introduction' },
+  { label: '環境構築', key: 'setup' },
   { label: 'useState', key: 'useState' },
   { label: 'useEffect', key: 'useEffect' },
   { label: 'useMemo', key: 'useMemo' },
   { label: 'useCallback', key: 'useCallback' },
+  { label: 'component / コンポーネント', key: 'component' },
   { label: 'Axios / Fetch', key: 'AxiosFetch' },
+  { label: 'ApexChart', key: 'ApexChart' },
+  { label: 'Form / フォーム', key: 'reactform' },
 ];
 
 function App() {
@@ -29,11 +38,15 @@ function App() {
 
   const demoMap: Record<string, JSX.Element> = {
     introduction: <Introduction />,
+    setup: <SetupDemo />,
     useState: <UseStateDemo />,
     useEffect: <UseEffectDemo />,
     useMemo: <UseMemoDemo />,
     useCallback: <UseCallbackDemo />,
-    AxiosFetch: <AxiosFetchDemo />
+    component: <ComponentDemo/>,
+    AxiosFetch: <AxiosFetchDemo />,
+    ApexChart: <ReactApexChartDemo/>,
+    reactform: <ReactFormDemo/>
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;
