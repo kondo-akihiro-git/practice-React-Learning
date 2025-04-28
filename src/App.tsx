@@ -10,6 +10,7 @@ import AxiosFetchDemo from './demos/AxiosFetchDemo';
 import ReactApexChartDemo from './demos/ReactApexChartDemo';
 import ComponentDemo from './demos/ComponentDemo';
 import ReactFormDemo from './demos/ReactFormDemo'
+import MapLoopDemo from './demos/MapLoopDemo'
 import styles from './styles/appStyles';
 import { BannerProvider } from './components/Banner';
 import ReactApexChart from 'react-apexcharts';
@@ -26,6 +27,7 @@ const hookButtons = [
   { label: 'Axios / Fetch', key: 'AxiosFetch' },
   { label: 'ApexChart', key: 'ApexChart' },
   { label: 'Form / フォーム', key: 'reactform' },
+  { label: 'map', key: 'maploop' },
 ];
 
 function App() {
@@ -46,7 +48,8 @@ function App() {
     component: <ComponentDemo/>,
     AxiosFetch: <AxiosFetchDemo />,
     ApexChart: <ReactApexChartDemo/>,
-    reactform: <ReactFormDemo/>
+    reactform: <ReactFormDemo/>,
+    maploop: <MapLoopDemo/>
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;

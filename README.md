@@ -3,6 +3,8 @@
 React（TypeScript）と MUI を使って、Reactの基本的なフックや機能を学べる学習用アプリです。  
 各機能ごとにボタンで画面を切り替え、実際のデモと実装コードを確認できます。
 
+公開URL:https://main.d128df7utvgbj1.amplifyapp.com/
+
 ## ディレクトリ概要
 
 - `public/`：基本のHTMLを格納
@@ -29,9 +31,10 @@ React（TypeScript）と MUI を使って、Reactの基本的なフックや機�
 - [x] useCallBack学習ページの追加
 - [x] React環境構築の手順追加
 - [x] デプロイ環境整備
+- [x] ReactFormの扱い追加
+- [x] コンポーネント管理
+- [x] map/keyの扱い追加
 
 ### 進行中・予定
 
-- [ ] map/keyの扱い追加
-- [ ] ReactFormの扱い追加
-- [ ] コンポーネント管理
+
