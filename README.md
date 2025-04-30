@@ -34,6 +34,7 @@ React（TypeScript）と MUI を使って、Reactの基本的なフックや機�
 - [x] ReactFormの扱い追加
 - [x] コンポーネント管理
 - [x] map/keyの扱い追加
+- [x] IF文/三項演算子のコンテンツ追加
 
 ### 進行中・予定
 
