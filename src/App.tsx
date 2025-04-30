@@ -11,6 +11,8 @@ import ReactApexChartDemo from './demos/ReactApexChartDemo';
 import ComponentDemo from './demos/ComponentDemo';
 import ReactFormDemo from './demos/ReactFormDemo'
 import MapLoopDemo from './demos/MapLoopDemo'
+import ConditionReactDemo from './demos/ConditionReactDemo';
+import ConditionTypescriptDemo from './demos/ConditionTypescriptDemo';
 import styles from './styles/appStyles';
 import { BannerProvider } from './components/Banner';
 import ReactApexChart from 'react-apexcharts';
@@ -28,6 +30,9 @@ const hookButtons = [
   { label: 'ApexChart', key: 'ApexChart' },
   { label: 'Form / フォーム', key: 'reactform' },
   { label: 'map', key: 'maploop' },
+  { label: 'Reactによる If条件 / 三項演算子', key: 'conditionReact' },
+  { label: 'TypeScriptによる If条件 / 三項演算子', key: 'conditionTypescript' },
+  
 ];
 
 function App() {
@@ -49,7 +54,9 @@ function App() {
     AxiosFetch: <AxiosFetchDemo />,
     ApexChart: <ReactApexChartDemo/>,
     reactform: <ReactFormDemo/>,
-    maploop: <MapLoopDemo/>
+    maploop: <MapLoopDemo/>,
+    conditionReact: <ConditionReactDemo/>,
+    conditionTypescript: <ConditionTypescriptDemo/>
   };
 
   const renderDemo = () => demoMap[selectedContent!] || null;
