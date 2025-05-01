@@ -5,6 +5,11 @@ React（TypeScript）と MUI を使って、Reactの基本的なフックや機�
 
 公開URL:https://main.d128df7utvgbj1.amplifyapp.com/
 
+## 画面イメージ
+
+<kbd><img style="border: solid;" width="1334" alt="top-react-learning-git" src="https://github.com/user-attachments/assets/2eb86cfa-ed30-404d-9ac7-de971503bf82" /></kbd>
+</br></br>
+
 ## ディレクトリ概要
 
 - `public/`：基本のHTMLを格納
@@ -38,4 +43,5 @@ React（TypeScript）と MUI を使って、Reactの基本的なフックや機�
 
 ### 進行中・予定
 
+- なし
 
